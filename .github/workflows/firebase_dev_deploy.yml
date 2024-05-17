@@ -18,6 +18,22 @@ jobs:
            echo "creating firebase_config.dart"
            echo "import 'package:firebase_core/firebase_core.dart';" > lib/backend/firebase/firebase_config.dart
            echo "import 'package:flutter/foundation.dart';" >>  lib/backend/firebase/firebase_config.dart
+           echo "import 'package:flutter_dotenv/flutter_dotenv.dart';" >>  lib/backend/firebase/firebase_config.dart
+           echo "import 'Future initFirebase() async {" >>  lib/backend/firebase/firebase_config.dart
+           echo "  if (kIsWeb) {" >>  lib/backend/firebase/firebase_config.dart
+           echo "    await dotenv.load();" >>  lib/backend/firebase/firebase_config.dart
+           echo "         options: const FirebaseOptions(" >>  lib/backend/firebase/firebase_config.dart
+           echo "              apiKey: \"AIzaSyCTjZmeJy87iF7uFWOJdtwCs_T1f3FNpYM\"," >>  lib/backend/firebase/firebase_config.dart
+           echo "              authDomain: \"my-demo-app-dev-9f4c3.firebaseapp.com\"," >>  lib/backend/firebase/firebase_config.dart
+           echo "              projectId: \"my-demo-app-dev-9f4c3\"," >>  lib/backend/firebase/firebase_config.dart
+           echo "              storageBucket: \"my-demo-app-dev-9f4c3.appspot.com\"," >>  lib/backend/firebase/firebase_config.dart
+           echo "              messagingSenderId: \"959906693380\"," >>  lib/backend/firebase/firebase_config.dart
+           echo "              appId: \"1:959906693380:web:343be5e699d735b0b85051\"," >>  lib/backend/firebase/firebase_config.dart
+           echo "              measurementId: \"G-EJBQ5PM0E0\"));" >>  lib/backend/firebase/firebase_config.dart
+           echo "  } else {" >>  lib/backend/firebase/firebase_config.dart
+           echo "     await Firebase.initializeApp();" >>  lib/backend/firebase/firebase_config.dart
+           echo "     } }" >>  lib/backend/firebase/firebase_config.dart
+           
            cat lib/backend/firebase/firebase_config.dart
            
       - name: Set up Flutter
