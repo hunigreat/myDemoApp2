@@ -15,6 +15,7 @@ jobs:
       - name: create firebase config file 
         run: |
            echo "creating firebase_config.dart"
+           mkdir lib/backend/firebase
            echo "${{ secrets.DEV_FIREBASE_CONFIG }}" > lib/backend/firebase/firebase_config.dart
            cat lib/backend/firebase/firebase_config.dart
 
