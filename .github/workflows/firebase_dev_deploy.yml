@@ -14,7 +14,6 @@ jobs:
 
       - name: create firebase config file 
         run: | 
-           cd 
            mkdir lib/backend/firebase 
            echo "creating firebase_config.dart"
            echo "import 'package:firebase_core/firebase_core.dart';" > lib/backend/firebase/firebase_config.dart
